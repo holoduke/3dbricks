@@ -1,3 +1,16 @@
+goog.require("bricks3d.hud");
+goog.require("bricks3d.brickgame");
+goog.require("bricks3d.resources");
+goog.require("bricks3d.sound");
+goog.require("bricks3d.tween");
+goog.require("bricks3d.util");
+
+goog.require("bricks3d.levels");
+
+goog.require("bricks3d.ball");
+goog.require("bricks3d.paddle");
+goog.require("bricks3d.brick");
+
 var resource = new Resources();
 
 /**
@@ -209,7 +222,7 @@ var game = function(){
 					game.tweenCamera(Tween.easeInOutQuad,{yTarget:5,zTarget:3, xTarget:-5,speed:1500});
 					game.tweenCamera(Tween.easeInOutQuad,{yTarget:5,zTarget:3, xTarget:6,speed:1500});
 					game.tweenCamera(Tween.easeInOutQuad,{yTarget:-5,zTarget:3, xTarget:-5,speed:1500});
-					game.tweenCamera(Tween.easeInOutQuad,{yTarget:5,zTarget:3, xTarget:-5,speed:1500,},function(){
+					game.tweenCamera(Tween.easeInOutQuad,{yTarget:5,zTarget:3, xTarget:-5,speed:1500},function(){
 						
 						aniloop();
 					});
@@ -331,7 +344,7 @@ var game = function(){
 				game.tweenCamera(Tween.easeInOutQuad,{yTarget:5,zTarget:3, xTarget:5,speed:1500});
 				game.tweenCamera(Tween.easeInOutQuad,{yTarget:5,zTarget:3, xTarget:-6,speed:1500});
 				game.tweenCamera(Tween.easeInOutQuad,{yTarget:-5,zTarget:3, xTarget:-5,speed:1500});
-				game.tweenCamera(Tween.easeInOutQuad,{yTarget:5,zTarget:3, xTarget:-5,speed:1500,},function(){
+				game.tweenCamera(Tween.easeInOutQuad,{yTarget:5,zTarget:3, xTarget:-5,speed:1500},function(){
 					
 					aniloop();
 				});
@@ -401,7 +414,7 @@ var game = function(){
 				game.tweenCamera(Tween.easeInOutQuad,{yTarget:5,zTarget:3, xTarget:5,speed:1500});
 				game.tweenCamera(Tween.easeInOutQuad,{yTarget:5,zTarget:3, xTarget:-6,speed:1500});
 				game.tweenCamera(Tween.easeInOutQuad,{yTarget:-5,zTarget:3, xTarget:-5,speed:1500});
-				game.tweenCamera(Tween.easeInOutQuad,{yTarget:5,zTarget:3, xTarget:-5,speed:1500,},function(){
+				game.tweenCamera(Tween.easeInOutQuad,{yTarget:5,zTarget:3, xTarget:-5,speed:1500},function(){
 					
 					aniloop();
 				});
@@ -560,7 +573,7 @@ var game = function(){
 				onBrickHit({
 					'brick' : e.brick,
 					'score' : bscore,
-					'enableBrickFadeOut' : true,
+					'enableBrickFadeOut' : true
 				}, function(brick) {
 					game.destroyBrick(brick);
 				})
@@ -569,7 +582,7 @@ var game = function(){
 				onBrickHit({
 					'brick' : e.brick,
 					'score' : bscore,
-					'enableBrickFadeOut' : false,
+					'enableBrickFadeOut' : false
 				}, function(brick) {
 					
 				})			
@@ -714,32 +727,32 @@ var game = function(){
 	
 				var lv = e.ball.GetLinearVelocity();
 				
-				var xv = lv.x * 2
-				var yv = lv.y * 2
+				var xv = lv.x * 2;
+				var yv = lv.y * 2;
 				
 				if (xv < 0){
-					xv= Math.max(xv,-15)
+					xv= Math.max(xv,-15);
 				}else{
-					xv=Math.min(xv,15)
+					xv=Math.min(xv,15);
 				}
 				if (yv < 0){
-					yv=Math.max(yv,-15)
+					yv=Math.max(yv,-15);
 				}else{
-					yv=Math.min(yv,15)
+					yv=Math.min(yv,15);
 				}
 			
 				e.ball.SetLinearVelocity(new b2Vec2(xv,yv))	
 			}
-			else if (e.brick.userData.type.type == 'ghost'){
-				
-			}
+//			else if (e.brick.userData.type.type == 'ghost'){
+//				
+//			}
 			
 			//show some fancy things when the ball hits the brick. if there is no hitcount left, we remove the brick	
 			if (!brick.userData.hitCount){
 				onBrickHit({
 					'brick' : e.brick,
 					'score' : bscore,
-					'enableBrickFadeOut' : true,
+					'enableBrickFadeOut' : true
 				}, function(brick) {
 					game.destroyBrick(brick);
 				})
@@ -748,7 +761,7 @@ var game = function(){
 				onBrickHit({
 					'brick' : e.brick,
 					'score' : bscore,
-					'enableBrickFadeOut' : false,
+					'enableBrickFadeOut' : false
 				}, function(brick) {
 					
 				})			

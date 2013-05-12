@@ -1,4 +1,6 @@
-    //basic event system
+goog.provide("bricks3d.util");    
+
+// basic event system
     ev = {};
     ev = {};
     ev.subs = [];

@@ -1,3 +1,5 @@
+goog.provide("bricks3d.levels");
+
 
 //var level1 = 
 //{
@@ -35,7 +37,7 @@ levels = (function(){
 							 5:{'color':15346160.1086433,'type':'superspeed'},
 							 4:{'color':4274646.795992431,'type':'normal','hitCount':2,"onHitTransformTo":1},
 							 6:{'color':19346160.1086433,'type':'ghost'},
-							 7:{'color':0934446.795992431,'type':'normal','hitCount':3,"onHitTransformTo":4}
+							 7:{'color':934446.7959924,'type':'normal','hitCount':3,"onHitTransformTo":4}
 					
 					},
 					layout: 
@@ -47,7 +49,7 @@ levels = (function(){
 					[ 1, 1, 1, 7 ,1, 1, 1 ],
 					[ 1, 1, 1, 1 ,1, 1, 1 ],
 					[ 0, 1, 1, 2 ,1, 1, 0 ],
-					[ 0, 0, 1, 1 ,1, 0, 0 ],
+					[ 0, 0, 1, 1 ,1, 0, 0 ]
 					] 
 			});
 	
@@ -67,7 +69,7 @@ levels = (function(){
 					 5:{'color':15346160.1086433,'type':'superspeed'},
 					 4:{'color':4274646.795992431,'type':'normal','hitCount':2,"onHitTransformTo":1},
 					 6:{'color':19346160.1086433,'type':'ghost'},
-					 7:{'color':0934446.795992431,'type':'normal','hitCount':3,"onHitTransformTo":4},
+					 7:{'color':934446.795992431,'type':'normal','hitCount':3,"onHitTransformTo":4},
 					 8:{'color':1860824.026639538,'type':'normal'}
 			
 			},
@@ -80,7 +82,7 @@ levels = (function(){
 			[ 0, 0, 0, 0 ,0, 0, 0 ],
 			[ 0, 0, 0, 0 ,0, 0, 0 ],
 			[ 0, 0, 0, 0 ,0, 0, 0 ],
-			[ 0, 0, 0, 0 ,0, 0, 0 ],
+			[ 0, 0, 0, 0 ,0, 0, 0 ]
 			] 
 	});
 	
@@ -98,7 +100,7 @@ levels = (function(){
 				 2:{'color':6356160.3086433,'type':'extraBalls'},
 				 5:{'color':15346160.1086433,'type':'superspeed'},
 				 4:{'color':4274646.795992431,'type':'normal','hitCount':2,"onHitTransformTo":1},
-				 6:{'color':19346160.1086433,'type':'ghost'},
+				 6:{'color':19346160.1086433,'type':'ghost'}
 			},
 			layout: 
 			[
@@ -128,7 +130,7 @@ levels = (function(){
 					 4:{'color':4274646.795992431,'type':'normal','hitCount':2,"onHitTransformTo":1},
 					 5:{'color':11808294.026639538,'type':'normal'},
 					 6:{'color':15346160.1086433,'type':'superspeed'},
-					 7:{'color':0934446.795992431,'type':'normal','hitCount':3,"onHitTransformTo":4}
+					 7:{'color':934446.795992431,'type':'normal','hitCount':3,"onHitTransformTo":4}
 			},
 			
 			layout: 
@@ -139,7 +141,7 @@ levels = (function(){
 			[ 2, 3, 2, 2 ,2, 3, 2 ],
 			[ 7, 7, 7, 7 ,7, 7, 7 ],
 			[ 4, 4, 4, 4 ,4, 4, 4 ], 
-			[ 5, 5, 5, 5 ,5, 5, 5 ],
+			[ 5, 5, 5, 5 ,5, 5, 5 ]
 			]
 	});
 	
@@ -168,7 +170,7 @@ levels = (function(){
 			[ 2, 0, 2, 0 ,2, 0, 2 ],
 			[ 3, 0, 3, 0 ,3, 0, 3 ],
 			[ 4, 0, 4, 0 ,4, 0, 4 ], 
-			[ 5, 0, 5, 0 ,5, 0, 5 ],
+			[ 5, 0, 5, 0 ,5, 0, 5 ]
 			]
 	});	
 	
@@ -185,7 +187,7 @@ levels = (function(){
 				 5:{'color':15346160.1086433,'type':'superspeed'},
 				 4:{'color':4274646.795992431,'type':'normal','hitCount':2,"onHitTransformTo":1},
 				 6:{'color':19346160.1086433,'type':'ghost'},
-				 7:{'color':0934446.795992431,'type':'normal','hitCount':3,"onHitTransformTo":4},
+				 7:{'color':934446.795992431,'type':'normal','hitCount':3,"onHitTransformTo":4},
 				 8:{'color':1860824.026639538,'type':'normal'}},
 			layout: 
 			[
@@ -202,7 +204,7 @@ levels = (function(){
 			[ 0, 0, 0, 0 ,1, 1, 2, 2, 1, 1, 0, 0, 0, 0 ],
 			[ 0, 0, 0, 1 ,1, 1, 2, 2, 1, 1, 1, 0, 0, 0 ],
 			[ 0, 0, 1, 1 ,1, 1, 1, 1, 1, 1, 1, 1, 0, 0 ],
-			[ 0, 7, 7, 7 ,7, 7, 7, 7, 7, 7, 7, 7, 7, 0 ],
+			[ 0, 7, 7, 7 ,7, 7, 7, 7, 7, 7, 7, 7, 7, 0 ]
 			]
 	});
 	

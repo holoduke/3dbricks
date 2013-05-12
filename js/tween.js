@@ -1,3 +1,5 @@
+goog.provide("bricks3d.tween");
+
 var Tween = {
 		// t: current time, b: begInnIng value, c: change In value, d: duration
 	easeInQuad : function(t, b, c, d) {

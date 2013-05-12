@@ -1,3 +1,7 @@
+goog.require("bricks3d.gameobject");
+
+goog.provide("bricks3d.ball");
+
 function Ball(scene,world){
 	
 	var scene = scene;

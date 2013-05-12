@@ -1,3 +1,7 @@
+goog.require("bricks3d.gameobject");
+
+goog.provide("bricks3d.paddle");
+
 function Paddle(scene,world){
 
 	var scene = scene;

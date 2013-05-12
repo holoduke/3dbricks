@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+<script src="closure/goog/base.js"></script>
+
+<script src="lib/three.min.js"></script>
+<script src="lib/Detector.js"></script>
+<script src="lib/Box2dWeb-2.1.a.3.min.js"></script>
+
+<script src="lib/gentilis_bold.typeface.js"></script>
+<script src="lib/gentilis_regular.typeface.js"></script>
+<script src="lib/optimer_bold.typeface.js"></script>
+<script src="lib/optimer_regular.typeface.js"></script>
+<script src="lib/helvetiker_bold.typeface.js"></script>
+<script src="lib/helvetiker_regular.typeface.js"></script>
+
+<script src="lib/ConvolutionShader.js"></script>
+<script src="lib/CopyShader.js"></script>
+<script src="lib/FilmShader.js"></script>
+<script src="lib/FXAAShader.js"></script>
+<script src="lib/FocusShader.js"></script>
+<script src="lib/EffectComposer.js"></script>
+<script src="lib/MaskPass.js"></script>
+<script src="lib/RenderPass.js"></script>
+<script src="lib/BloomPass.js"></script>
+<script src="lib/ShaderPass.js"></script>
+<script src="lib/FilmPass.js"></script>
+<script src="lib/SSAOShader.js"></script>
+
+<script src="js/util.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/resource.js"></script>
+<script src="js/tween.js"></script>
+<script src="js/objects/gameobject.js"></script>
+<script src="js/objects/ball.js"></script>
+<script src="js/objects/brick.js"></script>
+<script src="js/objects/paddle.js"></script>
+
+<script src="js/level/levels.js"></script>
+<script src="js/brickgame.js"></script>
+<script src="js/hud.js"></script>
+<script src="js/game.js"></script>
+
+
+</head>
+
+<body>
+
+	<div class="mainContainer">
+
+		<div class="innerContainer">
+
+			<div id="3dcanvas" class="canvas3d"></div>
+			<div id="2dcanvas" class="canvas2d"></div>
+
+			<div id="credits" class="creditsContainer">
+				<div id="creditsText" class="creditsText">
+
+					Yeah, You have completed the game<br>
+					<br> <b>Credits:</b><br> <br> <b>Programming/Design</b><br>
+					Holoduke<br> amarocolas<br> <br> <b>Music</b><br>
+					Semoz<br> <br> <b>Testing</b><br> Ramcharan<br>
+					<br> Special thanks to the creators of Three JS and Box2d<br>
+					<br> Thanks for playing. <br> For more fun order the full
+					version now!.<br> <br>
+					<br>
+
+				</div>
+			</div>
+
+			<div id="loadingContainer" class="loadingContainer">
+				<div id="loadingText" class="loadingText">Loading 0%</div>
+			</div>
+
+			<div id="splashContainer" class="splashContainer">
+				<div class="splashInnerContainer"></div>
+				<div class="overlayContainer">
+					<div class="titleText"></div>
+				</div>
+			</div>
+
+			<div class="overlayContainer">
+				<div id="startTitle" class="pressKeyText"></div>
+			</div>
+
+			<div class="overlayContainer">
+				<div id="gameoverTitle" class="gameoverText"></div>
+			</div>
+
+			<div id="white" class="fadeScreen"></div>
+
+		</div>
+	</div>
+
+	<script>
+		game();
+	</script>
+
+</body>
+</html>

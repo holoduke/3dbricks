@@ -1,3 +1,7 @@
+goog.require("bricks3d.gameobject");
+
+goog.provide("bricks3d.brick");
+
 function Brick(scene,world){
 
 	var scene = scene;
@@ -61,7 +65,7 @@ function Brick(scene,world){
 			'name' : 'brick',
 			'guiref' : brick,
 			'type' : type,
-			'hitCount' : type.hitCount || 1,
+			'hitCount' : type.hitCount || 1
 		};
 				
 		return body;

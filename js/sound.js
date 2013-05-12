@@ -1,3 +1,5 @@
+goog.provide("bricks3d.sound");
+
 /**
  * a simple sound helper class in which you can play resources
  */

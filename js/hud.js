@@ -1,3 +1,5 @@
+goog.provide("bricks3d.hud");
+
 /**
  * hud for showing scores/lives
  */

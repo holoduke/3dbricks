@@ -1,3 +1,5 @@
+goog.provide("bricks3d.gameobject");
+
 //basic methods for objects
 function GameObject(){
 

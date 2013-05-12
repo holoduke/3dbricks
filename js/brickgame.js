@@ -1,3 +1,5 @@
+goog.provide("bricks3d.brickgame");
+
 function BrickGame() {
 
 	var gameSize = {
