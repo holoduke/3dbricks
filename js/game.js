@@ -9,7 +9,7 @@ var resource = new Resources();
  * - creates event listeners on certain game events
  * - helper functions for animation stuff 
  */
-var game = (function(){
+var game = function(){
 
 	//detects if browser supports webgl. otherwise show message
 	var webgl = Detector.webgl;
@@ -1217,4 +1217,4 @@ var game = (function(){
 			move();
 		})	
 	}
-})();
+};
