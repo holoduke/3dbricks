@@ -1,0 +1,142 @@
+body {
+	background-color: black;
+}
+
+.mainContainer {
+	border-radius: 10px;
+	width: 1020px;
+	height: 625px;
+	margin: 0 auto;
+	border: 1px solid #888888;
+	position: relative;
+}
+
+.innerContainer {
+	margin: 10px;
+	position: relative;
+}
+
+.canvas3d {
+	position: absolute;
+	top: 0;
+	border-radius: 10px;
+	width: 1000px;
+	height: 600px;
+}
+
+.canvas2d {
+	position: absolute;
+	top: 0;
+	opacity: 0.8;
+	border-radius: 10px;
+	width: 1000px;
+	height: 600px;
+}
+
+.loadingContainer {
+	z-index: 9999;
+	opacity: 0.9;
+	background: url(../images/title.jpg);
+	position: absolute;
+	top: 0;
+	border-radius: 10px;
+	width: 1000px;
+	height: 600px;
+}
+
+.splashContainer {
+	display: none;
+	position: absolute;
+	top: 0;
+	border-radius: 10px;
+	width: 1000px;
+	height: 600px;
+}
+
+.splashInnerContainer {
+	position: absolute;
+	top: 0;
+	border-radius: 10px;
+	width: 1000px;
+	height: 600px;
+	background-color: #ffffff;
+	opacity: 0.0;
+}
+
+.overlayContainer {
+	position: absolute;
+	top: 0;
+	border-radius: 10px;
+	width: 1000px;
+	height: 600px;
+}
+
+.creditsContainer {
+	overflow: hidden;
+	display: none;
+	position: absolute;
+	top: 0;
+	border-radius: 10px;
+	width: 1000px;
+	height: 600px;
+}
+
+.loadingText {
+	width: 150px;
+	color: #333333;
+	font-size: 24px;
+	margin: 0 auto;
+	margin-top: 250px;
+	background-color: rgb(255, 255, 255);
+	padding: 12px;
+	border-radius: 18px;
+	border: 3px solid #333333;
+}
+
+.titleText {
+	background: url(../images/title.png);
+	width: 830px;
+	height: 90px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.pressKeyText {
+	opacity: 0;
+	background: url(../images/continue.png);
+	width: 510px;
+	height: 56px;
+	margin: 0 auto;
+	margin-top: 180px;
+}
+
+.gameoverText {
+	display: none;
+	background: url(../images/gameover.png);
+	width: 270px;
+	height: 56px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.creditsText {
+	width: 270px;
+	width: 550px;
+	height: 56px;
+	margin: 0 auto;
+	margin-top: 634px;
+	font-size: 30px;
+	font-family: fantasy;
+	text-align: center;
+	color: white;
+}
+
+.fadeScreen {
+	background-color: white;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	border-radius: 10px;
+	width: 1000px;
+	height: 600px;
+}
