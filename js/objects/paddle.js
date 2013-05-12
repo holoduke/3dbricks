@@ -51,9 +51,9 @@ function Paddle(scene,world){
 		vertexArray.push(new b2Vec2(0.7, -0.1));
 
 		vertexArray.push(new b2Vec2(0.6, 0.2));
-		vertexArray.push(new b2Vec2(0.2, 0.3));
+		vertexArray.push(new b2Vec2(0.2, 0.35));
 
-		vertexArray.push(new b2Vec2(-0.2, 0.3));
+		vertexArray.push(new b2Vec2(-0.2, 0.35));
 		vertexArray.push(new b2Vec2(-0.6, 0.2));
 		
 		vertexArray.push(new b2Vec2(-0.7, -0.1));
