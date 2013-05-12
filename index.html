@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+</head>
+
+<body style="background-color:black;">
+
+
+<div style="border-radius:10px;width:1020px;height:625px;margin: 0 auto;border:1px solid #888888;position:relative;">
+
+	<div id="mainContainer" style="margin:10px;position:relative;">
+		
+		<div id="3dcanvas" style="position:absolute;top:0;border-radius:10px;width:1000px;height:600px;"></div>
+		<div id="3dcanvas2" style="position:absolute;top:0;border-radius:10px;width:1000px;height:600px;"></div>
+	<div id="2dcanvas" style="position:absolute;top:0;opacity:0.8;border-radius:10px;width:1000px;height:600px;"></div>
+
+	<div id="credits" style="overflow:hidden;display:none;position:absolute;top:0;border-radius:10px;width:1000px;height:600px;">
+		<div id="creditsText" style="width: 270px;
+width: 550px;
+height: 56px;
+margin: 0 auto;
+margin-top: 634px;
+font-size: 30px;
+font-family: fantasy;
+text-align: center;
+color: white;"> 
+
+		Yeah, You have completed the game<br><br>
+
+		<b>Credits:</b><br>
+		<br>
+		<b>Programming/Design</b><br>
+		Holoduke<br>
+		amarocolas<br>
+		<br>
+		<b>Music</b><br>
+		Semoz<br>
+		<br>
+		<b>Testing</b><br>
+		Ramcharan<br><br>
+		
+		Special thanks to the creators of Three JS and Box2d<br><br>
+
+		Thanks for playing. <br> 
+		For more fun order the full version now!.<br>
+		More than 1000 levels, 50 unique balls and customizable camera's<br><br>
+		
+		
+		</div>
+	</div>
+	
+	<div id="loadingContainer" style="z-index:9999;opacity:0.9;background:url(images/title.jpg);position:absolute;top:0;border-radius:10px;width:1000px;height:600px;">
+		<div id="loadingText" style="width:150px;color: #333333;
+font-size: 24px;
+margin: 0 auto;
+margin-top: 250px;
+background-color: rgb(255, 255, 255);
+padding: 12px;
+border-radius: 18px;
+border: 3px solid #333333;">Loading 0%</div>
+	</div>	
+	
+	<div id="splashContainer" style="display:none;position:absolute;top:0;border-radius:10px;width:1000px;height:600px;">
+		
+		<div style="position:absolute;top:0;border-radius:10px;width:1000px;height:600px;background-color:#ffffff;opacity:0.0"></div>
+	
+		<div style="position:absolute;top:0;border-radius:10px;width:1000px;height:600px;">
+			<div style="background:url(images/title.png); width:830px;height:90px;margin:0 auto; margin-top:50px;"></div>
+		</div>
+	</div>
+	<div style="position:absolute;top:0;border-radius:10px;width:1000px;height:600px;">
+		<div id="startTitle" style="opacity:0;background:url(images/continue.png); width:510px;height:56px;margin:0 auto; margin-top:180px;"></div>
+	</div>
+	
+	<div style="position:absolute;top:0;border-radius:10px;width:1000px;height:600px;">
+		<div id="gameoverTitle" style="display:none;background:url(images/gameover.png); width:270px;height:56px;margin:0 auto; margin-top:50px;"></div>
+	</div>	
+	
+	<div id="white" style="background-color:white;opacity:0;position:absolute;top:0;border-radius:10px;width:1000px;height:600px;"></div>
+	
+	</div>
+</div>
+
+<script type="text/javascript" src="lib/three.min.js"></script>	
+<script src="lib/gentilis_bold.typeface.js"></script>
+		<script src="lib/gentilis_regular.typeface.js"></script>
+		<script src="lib/optimer_bold.typeface.js"></script>
+		<script src="lib/optimer_regular.typeface.js"></script>
+		<script src="lib/helvetiker_bold.typeface.js"></script>
+		<script src="lib/helvetiker_regular.typeface.js"></script>
+		
+				<script src="lib/ConvolutionShader.js"></script>
+		<script src="lib/CopyShader.js"></script>
+		<script src="lib/FilmShader.js"></script>
+		<script src="lib/FXAAShader.js"></script>
+		<script src="lib/FocusShader.js"></script>
+	<script src="lib/EffectComposer.js"></script>
+		<script src="lib/MaskPass.js"></script>
+		<script src="lib/RenderPass.js"></script>
+		<script src="lib/BloomPass.js"></script>
+		<script src="lib/ShaderPass.js"></script>
+		<script src="lib/FilmPass.js"></script>		
+		<script src="lib/SSAOShader.js"></script>
+
+	
+<script type="text/javascript" src="js/util.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/resource.js"></script>
+<script type="text/javascript" src="js/tween.js"></script>
+<script type="text/javascript" src="lib/Detector.js"></script>
+<script type="text/javascript" src="lib/Box2dWeb-2.1.a.3.min.js"></script>
+<script type="text/javascript" src="js/objects/gameobject.js"></script>
+<script type="text/javascript" src="js/objects/ball.js"></script>
+<script type="text/javascript" src="js/objects/brick.js"></script>
+<script type="text/javascript" src="js/objects/paddle.js"></script>
+
+<script type="text/javascript" src="js/level/levels.js"></script>
+<script type="text/javascript" src="js/brickgame.js"></script>
+<script type="text/javascript" src="js/hud.js"></script>
+<script type="text/javascript" src="js/game.js"></script>
+
+
+
+
+
+<script>
+</script>
+
+
+
+
+
+</body>
+</html>
