@@ -975,7 +975,7 @@ function BrickGame() {
 			camera.position.x = paddle.mesh.position.x / 1.3;
 		}
 			
-		scene.box2dworld.SetGravity(new b2Vec2(((0 - paddle.mesh.position.x) / 6), -1));
+		scene.box2dworld.SetGravity(new b2Vec2(((0 - paddle.mesh.position.x) / 6), -0.7));
 
 		renderer.clear(false,true,false);
 		

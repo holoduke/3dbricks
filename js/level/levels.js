@@ -127,14 +127,15 @@ levels = (function(){
 					 3:{'color':8485631.716873156,'type':'normal','hitCount':3,"onHitTransformTo":4},
 					 4:{'color':4274646.795992431,'type':'normal','hitCount':2,"onHitTransformTo":1},
 					 5:{'color':11808294.026639538,'type':'normal'},
+					 6:{'color':15346160.1086433,'type':'superspeed'},
 					 7:{'color':0934446.795992431,'type':'normal','hitCount':3,"onHitTransformTo":4}
 			},
 			
 			layout: 
 			[
-			[ 1, 0, 0, 1 ,0, 0, 1 ],
-			[ 1, 0, 0, 1 ,0, 0, 1 ],
-			[ 1, 0, 0, 1 ,0, 0, 1 ],
+			[ 1, 6, 6, 1 ,6, 6, 1 ],
+			[ 1, 6, 6, 1 ,6, 6, 1 ],
+			[ 1, 6, 6, 1 ,6, 6, 1 ],
 			[ 2, 3, 2, 2 ,2, 3, 2 ],
 			[ 7, 7, 7, 7 ,7, 7, 7 ],
 			[ 4, 4, 4, 4 ,4, 4, 4 ], 
