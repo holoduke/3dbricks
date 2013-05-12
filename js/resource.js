@@ -12,11 +12,13 @@ Resources = function(){
 	
 	var resources = {
 			
-			"audio":['music/JAHOOR.ogg',
+			"audio":['music/JAHOOR.ogg', //start
 			         'music/game over.ogg',
 			         'music/leveleen.ogg',
 			         'music/leveldrie.ogg',
 			         'music/level hakken.ogg',
+			         'music/GEFORCE.ogg',
+			         'music/DJCLANTM.ogg',
 			         'music/russia.mp3',
 			         'music/hit2.ogg',
 			         'music/hit.ogg',
@@ -29,7 +31,8 @@ Resources = function(){
 			"cubemaps" :[{'name':'textures/bg1.png',"maps":['textures/bg1.png','textures/bg1.png','textures/bg1.png','textures/bg1.png','textures/bg1.png','textures/bg1.png']},
 			             {'name':'textures/bg2.png',"maps":['textures/bg2.png','textures/bg2.png','textures/bg2.png','textures/bg2.png','textures/bg2.png','textures/bg2.png']},
 			             {'name':'textures/bg3.png',"maps":['textures/bg3.png','textures/bg3.png','textures/bg3.png','textures/bg3.png','textures/bg3.png','textures/bg3.png']},
-			             {'name':'textures/bg4.png',"maps":['textures/bg4.png','textures/bg4.png','textures/bg4.png','textures/bg4.png','textures/bg4.png','textures/bg4.png']}
+			             {'name':'textures/bg4.png',"maps":['textures/bg4.png','textures/bg4.png','textures/bg4.png','textures/bg4.png','textures/bg4.png','textures/bg4.png']},
+			             {'name':'textures/bg5.png',"maps":['textures/bg5.png','textures/bg5.png','textures/bg5.png','textures/bg5.png','textures/bg5.png','textures/bg5.png']}
 			            ]
 	}
 	
