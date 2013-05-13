@@ -29,7 +29,7 @@ Resources = function(){
 			         'music/bonus3.ogg',
 			         'music/alarm.ogg'
 			         ],
-			"models":['models/object.js'],
+			"models":['models/paddle.js'],
 			"cubemaps" :[{'name':'textures/bg1.png',"maps":['textures/bg1.png','textures/bg1.png','textures/bg1.png','textures/bg1.png','textures/bg1.png','textures/bg1.png']},
 			             {'name':'textures/bg2.png',"maps":['textures/bg2.png','textures/bg2.png','textures/bg2.png','textures/bg2.png','textures/bg2.png','textures/bg2.png']},
 			             {'name':'textures/bg3.png',"maps":['textures/bg3.png','textures/bg3.png','textures/bg3.png','textures/bg3.png','textures/bg3.png','textures/bg3.png']},
@@ -72,10 +72,10 @@ Resources = function(){
 	}
 	
 	var loadJSON = function(model,cb){
-		 jsonloader.load(model, function( geometry ) {
+		 jsonloader.load(model, function( geometry, materials ) {
 				
 			 addProgress(model,1);
-			 loadedResources[model] = geometry;
+			 loadedResources[model] = {geometry:geometry, materials:materials};
 			 cb();
 		 });		
 	}
