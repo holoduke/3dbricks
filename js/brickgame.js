@@ -762,6 +762,8 @@ function BrickGame() {
 		}		
 		else if (bA.userData && bA.userData.name == 'paddle' || bB.userData && bB.userData.name == 'paddle') {
 			
+
+		
 			var ball = null;
 			if (bA.userData && bA.userData.name == 'ball'){
 				ball = bA
@@ -773,26 +775,13 @@ function BrickGame() {
 			//bounce ratio between y and x should not be lower than 1
 			//in other words, the minimum angle should be 45 degrees
 			if (ball){
-				var lv = ball.GetLinearVelocity();
-				
-				var xv = Math.abs(lv.x)
-				var yv = Math.abs(lv.y)
-				var newY = 1;
-			
-				if (yv/xv < 1){
-					newY = xv;
-					
-					if (lv.y >= 0){
-						ball.SetLinearVelocity(new b2Vec2(lv.x,newY))
-					}
-					else if (lv.y <= 0){
-						ball.SetLinearVelocity(new b2Vec2(lv.x,-newY))
-					}
-				}
-				
-				if (Math.abs(newY) < 3){
-					//ball.SetLinearVelocity(new b2Vec2(lv.x,4))
-				}
+
+				var m = new Box2D.Collision.b2WorldManifold();
+				contact.GetWorldManifold(m);
+
+				var hit = m.m_points[0].x-paddlePosX;
+
+				ball.SetLinearVelocity(new b2Vec2(6*hit,4));
 			}
 			
 			ev.pub("game.paddleHit",paddle);
