@@ -161,7 +161,7 @@ levels = (function(){
 			types : {1:{'color':11808294.026639538,'type':'normal'}, 
 				     2:{'color':6356160.3086433,'type':'extraBalls'},
 					 3:{'color':8157503.589997533,'type':'normal'},
-					 4:{'color':1274646.795992431,'type':'normal'},
+					 4:{'color':4274646.795992431,'type':'normal','hitCount':2,"onHitTransformTo":1},
 					 5:{'color':61838294.026639538,'type':'normal'},
 					 7:{'color':934446.795992431,'type':'normal','hitCount':3,"onHitTransformTo":4},
 					 9:{'color':4234.234342,'type':'bigBall'}
