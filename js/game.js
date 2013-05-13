@@ -538,6 +538,7 @@ var game = function(){
 				
 				if (e.ball.userData.isBigBall != true){
 				
+					sound.playSound("music/blow.ogg");
 					e.ball.userData.isBigBall = true;
 					animateBallResize(e.ball,0.2,0.2,function(){
 						

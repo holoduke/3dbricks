@@ -27,7 +27,8 @@ Resources = function(){
 			         'music/bonus1.ogg',
 			         'music/bonus2.ogg',
 			         'music/bonus3.ogg',
-			         'music/alarm.ogg'
+			         'music/alarm.ogg',
+			         'music/blow.ogg'
 			         ],
 			"models":['models/paddle.js'],
 			"cubemaps" :[{'name':'textures/bg1.png',"maps":['textures/bg1.png','textures/bg1.png','textures/bg1.png','textures/bg1.png','textures/bg1.png','textures/bg1.png']},
