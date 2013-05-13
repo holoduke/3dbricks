@@ -17,7 +17,29 @@ var Tween = {
 	easeInOutQuad : function(t, b, c, d) {
 		if ((t/=d/2) < 1) return c/2*t*t + b;
 		return -c/2 * ((--t)*(t-2) - 1) + b;
-	}
+	},
+	
+	 sineInOut: function (t, b, c, d) {
+         return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
+     },
+
+	
+	quintInOut: function (t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) {
+            return c / 2 * t * t * t * t * t + b;
+        }
+        t -= 2;
+        return c / 2 * (t * t * t * t * t + 2) + b;
+    },
+    circInOut: function (t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) {
+            return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
+        }
+        t -= 2;
+        return c / 2 * (Math.sqrt(1 - t * t) + 1) + b;
+    }
 	
 	
 };
