@@ -13,18 +13,6 @@ function Paddle(scene,world){
 	
 	var getGeometry = function(x, y){
 		
-       var geometry = new THREE.CubeGeometry( 1.4, 0.2, 0.2 );
-
-        var material = new THREE.MeshPhongMaterial( 
-        	{ color: 13947256.453834934 
-        	  ,shininess: 50
-        	  //,wireframe:true
-        	} );
-        
-        mesh = new THREE.Mesh( geometry, material );
-        mesh.position.y = y
-        mesh.castShadow = true;
-        mesh.position.z = 0;
         return mesh;
 	}
 	
@@ -40,27 +28,19 @@ function Paddle(scene,world){
 		bodyDef.type = b2Body.b2_dynamicBody;
 		bodyPoly = new b2PolygonShape();   
 		fixDef.shape = bodyPoly;
-
-
-		//var Array = new Array(20, -25, -20, -25, -50, -15, -70, 5, -70, 25, 70, 25, 70, 5, 50, -15);
-
 		
 		var vertexArray = [];
 
-		vertexArray.push(new b2Vec2(-0.0, -0.3));
-		vertexArray.push(new b2Vec2(0.7, -0.1));
+		vertexArray.push(new b2Vec2(0.8, 0.2));
 
-		vertexArray.push(new b2Vec2(0.6, 0.2));
+		vertexArray.push(new b2Vec2(0.7, 0.33));
 		vertexArray.push(new b2Vec2(0.2, 0.35));
 
 		vertexArray.push(new b2Vec2(-0.2, 0.35));
-		vertexArray.push(new b2Vec2(-0.6, 0.2));
+		vertexArray.push(new b2Vec2(-0.7, 0.33));
 		
-		vertexArray.push(new b2Vec2(-0.7, -0.1));
+		vertexArray.push(new b2Vec2(-0.8, 0.2));
 	
-		
-		
-
 		bodyPoly.SetAsArray(vertexArray, vertexArray.length);
 
 		bodyDef.position.x = x;
@@ -115,13 +95,13 @@ function Paddle(scene,world){
 		
 		dir = getDir();
 		if (dir > 0) {
-			this.body.ApplyImpulse(new Box2D.Common.Math.b2Vec2(6.2,0),this.body.GetWorldCenter())
+			this.body.ApplyImpulse(new Box2D.Common.Math.b2Vec2(2.7,0),this.body.GetWorldCenter())
 			
 			speed += dir/100;
 			if (speed < 0) speed += dir/60;
 		}
 		else if (dir < 0){ 
-			this.body.ApplyImpulse(new Box2D.Common.Math.b2Vec2(-6.2,0),this.body.GetWorldCenter())
+			this.body.ApplyImpulse(new Box2D.Common.Math.b2Vec2(-2.7,0),this.body.GetWorldCenter())
 			speed += dir/100;
 			if (speed > 0) speed +=dir/60;
 		}
@@ -129,22 +109,17 @@ function Paddle(scene,world){
 	
 	
 	this.create = function(x, y){
-		
-		//var paddle = getGeometry(x, y);
-		
-	    mesh = new THREE.Mesh( resource.getResource('models/object.js'), new THREE.MeshPhongMaterial(
-	    		{color:2232323}) );
+	
+		var r = resource.getResource('models/paddle.js');
+	    mesh = new THREE.Mesh( r.geometry, new THREE.MeshFaceMaterial( r.materials ));
+	    		
         mesh.scale.set( 1, 1, 1 );
-        mesh.rotation.x = 1.4
+        mesh.rotation.x = 1.5
         mesh.position.x = x;
         mesh.position.y = y;
         scene.add( mesh );
         this.mesh = mesh;
-	   
-	//	scene.add(paddle);
-		
-		//this.mesh = paddle;
-		
+	  
 		this.body = getBody(x, y);
 		this.body.userData = {
 			'name' : 'paddle',
@@ -159,6 +134,10 @@ function Paddle(scene,world){
 	this.sync = function(){
 		this.body.userData.guiref.position.x = this.body.GetPosition().x;
 		this.body.userData.guiref.position.y = this.body.GetPosition().y;
+	}
+	
+	this.destroy = function(){
+		removeListeners();
 	}
 	
 }

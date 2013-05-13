@@ -8,9 +8,9 @@ function Ball(scene,world){
 	var world = world;
 	this.maxSpeed = 5;
 
-	var getGeometry = function(color){
+	var getGeometry = function(color,rad){
 		
-		var geometry = new THREE.SphereGeometry(0.2, 32, 8);
+		var geometry = new THREE.SphereGeometry(rad, 32, 8);
 		geometry.dynamic = true;
 		var color = color || Math.random() * 0xffffff;
 		
@@ -39,9 +39,10 @@ function Ball(scene,world){
 		return ballbody;		
 	}
 
-	this.create = function(x,y,color){
+	//x pos, y pos, rad radius, color
+	this.create = function(x,y,rad,color){
 		
-		var ball = getGeometry(color);
+		var ball = getGeometry(color,rad);
 		this.mesh = ball;
 		scene.add(ball);
 		
@@ -56,7 +57,7 @@ function Ball(scene,world){
 		fixDef.density = 1.0;
 		fixDef.friction = 0;
 		fixDef.restitution = 1;
-		fixDef.shape = new b2CircleShape(0.2);
+		fixDef.shape = new b2CircleShape(rad);
 		
 		body.CreateFixture(fixDef)
 	

@@ -65,19 +65,25 @@ function BrickGame() {
 	 * resets the game. bricks will be restored, ball placed to original start position
 	 */
 	this.reset = function(cb,pause){
-				
-		this.addPreRenderCb(function(){
-			
-			if (balls.length >= 0){
-				for (var i=balls.length-1; i >= 0; i--){
-					that.destroyBall(balls[i]);
-				}
-			}
+		
+		if (!animating){
 			if (pause) paused = true;
-			cleanup();
 			that.start();
 			if (cb) cb();
-		});
+		}
+		else{
+			this.addPreRenderCb(function(){
+				if (balls.length >= 0){
+					for (var i=balls.length-1; i >= 0; i--){
+						that.destroyBall(balls[i]);
+					}
+				}
+				if (pause) paused = true;
+				cleanup();
+				that.start();
+				if (cb) cb();
+			});
+		}
 	}
 	
 	this.cleanup = function(cb){
@@ -89,7 +95,8 @@ function BrickGame() {
 				}
 			}
 			
-			cleanup();			
+			cleanup();
+			paddle.destroy(); //to remove event listeners
 			if (cb) cb();
 		});
 		
@@ -125,17 +132,17 @@ function BrickGame() {
 			ballBody.SetLinearVelocity(new Box2D.Common.Math.b2Vec2(0,0));
 			
 			if (paddle){
-				ballBody.SetPosition(new Box2D.Common.Math.b2Vec2(paddle.body.GetPosition().x,-3.5));
+				ballBody.SetPosition(new Box2D.Common.Math.b2Vec2(paddle.body.GetPosition().x,-3.0));
 			}
 			else{
-				ballBody.SetPosition(new Box2D.Common.Math.b2Vec2(paddlePosX,-3.5));
+				ballBody.SetPosition(new Box2D.Common.Math.b2Vec2(paddlePosX,-3.0));
 			}
 			
 			var direction = paddle.body.GetPosition().Copy()
 			direction.Subtract(new Box2D.Common.Math.b2Vec2(0,0))
 			direction.Normalize();
 			direction.Multiply(-1);
-			
+			direction.x += .5* (Math.random() < 0.5 ? -1 : 1)
 			ballBody.ApplyImpulse(direction, ballBody.GetWorldCenter());
 			
 			if (cb){
@@ -155,7 +162,7 @@ function BrickGame() {
 	}
 	
 	this.createBonusBall = function(x,y){
-		var ball = createBall(x,y,8485631.716873156)
+		var ball = createBall(x,y,0.2,8485631.716873156)
 		ball.body.ApplyImpulse(new Box2D.Common.Math.b2Vec2((Math.random() < 0.5 ? -1 : 1) * Math.random(),(Math.random() < 0.5 ? -1 : 1) * Math.random()), ball.body.GetWorldCenter())
 	}
 	
@@ -164,6 +171,25 @@ function BrickGame() {
 		scene.box2dworld.DestroyBody(ball.body);
 		balls.splice(balls.indexOf(ball),1);
 		syncedObjects.splice(syncedObjects.indexOf(ball),1);
+	}
+	
+	this.setBallScale = function(ball,scale){
+		
+		//this can happen when this method is used in the middle of an scheduled animation
+		//and removed from the scene during. 
+		if (!ball || !ball.GetFixtureList()) return;
+		
+		ball.GetFixtureList().GetShape().SetRadius(ball.userData.guiref.geometry.radius*scale)
+		ball.userData.guiref.scale.x= scale;
+		ball.userData.guiref.scale.y= scale; 
+		ball.userData.guiref.scale.z= scale;
+		ball.userData.guiref.position.z = ((ball.userData.guiref.geometry.radius) * scale) - 0.20;
+	}
+	
+	//its not possible to change geometry size without recreating it. scaling is possible though
+	this.setBallSize = function(ball,size){
+		var scalefactor = size/(ball.userData.guiref.geometry.radius);
+		this.setBallScale(ball,scalefactor);
 	}
 	
 	this.getBallCount = function(){
@@ -556,9 +582,9 @@ function BrickGame() {
 		scene.add( light );
 	}
 	
-	function createBall(x,y,color) {
+	function createBall(x,y,rad,color) {
 		var ball = new Ball(scene,scene.box2dworld);
-		ball.create(x,y,color);
+		ball.create(x,y,rad,color);
 		balls.push(ball);
 		syncedObjects.push(ball);
 		
@@ -596,19 +622,18 @@ function BrickGame() {
 			
 		//create controlable paddle
 		paddle = new Paddle(scene,scene.box2dworld);
-		window.p = paddle;
-		window.c = camera;
 		var paddleBody =paddle.create(paddlePosX,paddlePosY);
 		syncedObjects.push(paddle);
 		
 		//create ball
-		var ball = createBall(paddlePosX,-3.2,12256377.722587917);
+		var ball = createBall(paddlePosX,-3.2,0.2,12256377.722587917);
 		var ballBody = ball.body;
 		
 		var direction = paddleBody.GetPosition().Copy()
 		direction.Subtract(new Box2D.Common.Math.b2Vec2(0,0))
 		direction.Normalize();
 		direction.Multiply(-1);
+		direction.x += .25* (Math.random() < 0.5 ? -1 : 1);
 		
 		ballBody.ApplyImpulse(new Box2D.Common.Math.b2Vec2(-0.2,-0.05),ballBody.GetWorldCenter())
 		ballBody.ApplyImpulse(direction, ballBody.GetWorldCenter())

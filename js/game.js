@@ -31,7 +31,7 @@ var game = function(){
 		return document.getElementById('loadingContainer').appendChild(Detector.getWebGLErrorMessage());
 	}
 	
-	var maxLifes = 3;
+	var maxLifes = 4;
 	var level = 1;
 	var lifes = maxLifes;
 	var score = 0;
@@ -126,7 +126,7 @@ var game = function(){
 		score = 0;
 		registerPlayerGameEvents();
 		game.setLevel(level);
-
+		
 		//fade to white -> reset the game -> let the camera look and follow the paddle ->
 		//pause the game -> start camera from certain position -> show blocks falling ->
 		//fade to normal -> move camera to play position
@@ -535,10 +535,19 @@ var game = function(){
 				})
 			}
 			else if (e.brick.userData.type.type=="bigBall"){
-	
-				e.ball.userData.guiref.scale.x= 1;
-				e.ball.userData.guiref.scale.y= 1; 
-				e.ball.userData.guiref.scale.z= 1;		
+				
+				if (e.ball.userData.isBigBall != true){
+				
+					e.ball.userData.isBigBall = true;
+					animateBallResize(e.ball,0.2,0.2,function(){
+						
+						setTimeout(function(){
+							animateBallResize(e.ball,0.4,-0.2,function(){
+								e.ball.userData.isBigBall = false; 
+							});
+						},5000);
+					});
+				}
 			}
 			else if (e.brick.userData.type.type=="superspeed"){
 	
@@ -718,10 +727,19 @@ var game = function(){
 				})
 			}
 			else if (e.brick.userData.type.type=="bigBall"){
-	
-				e.ball.userData.guiref.scale.x= 1;
-				e.ball.userData.guiref.scale.y= 1; 
-				e.ball.userData.guiref.scale.z= 1;		
+				
+				if (e.ball.userData.isBigBall != true){
+				
+					e.ball.userData.isBigBall = true;
+					animateBallResize(e.ball,0.2,0.2,function(){
+						
+						setTimeout(function(){
+							animateBallResize(e.ball,0.4,-0.2,function(){
+								e.ball.userData.isBigBall = false; 
+							});
+						},5000);
+					});
+				}
 			}
 			else if (e.brick.userData.type.type=="superspeed"){
 	
@@ -743,10 +761,7 @@ var game = function(){
 			
 				e.ball.SetLinearVelocity(new b2Vec2(xv,yv))	
 			}
-//			else if (e.brick.userData.type.type == 'ghost'){
-//				
-//			}
-			
+
 			//show some fancy things when the ball hits the brick. if there is no hitcount left, we remove the brick	
 			if (!brick.userData.hitCount){
 				onBrickHit({
@@ -873,6 +888,31 @@ var game = function(){
 		animate();	
 	}
 	
+	//animates a ball resize
+	var animateBallResize = function(ball,from,change,cb){
+		var t = 0;
+		var d = 100;
+		function ani(ball){
+			
+			game.addPreRenderCb(function(){
+					
+				game.setBallSize(ball,Tween.sineInOut(t,from,change,d));
+			
+				t++;
+				
+				if (d == t){
+					
+					if (cb)cb();
+					
+					return;
+				}
+				
+				ani(ball);
+			});
+		}
+		
+		ani(ball);
+	}
 	/**
 	 * shows score above brick. bricks slowly fades away and will be removed from scene
 	 */
@@ -1141,8 +1181,6 @@ var game = function(){
 				
 			
 				var imp = 3/diff * 6;
-				//console.log(diff)
-				
 				
 				if (diff > 0.4) {
 					left++;
@@ -1193,7 +1231,7 @@ var game = function(){
 			planet.useQuaternion = true;
 			planet.receiveShadow = true;
 			planet.castShadow = true;
-			planet.position.y = Math.random() * 100 * (Math.random() < 0.5 ? -1 : 1);;
+			planet.position.y = Math.random() * 100 * (Math.random() < 0.5 ? -1 : 1);
 			planet.position.x = Math.random() * 100 * (Math.random() < 0.5 ? -1 : 1);
 			planet.position.z = Math.random() * 100 * (Math.random() < 0.5 ? -1 : 1);
 			planet.position.speedz = Math.random() * .3;
