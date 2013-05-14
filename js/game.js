@@ -922,15 +922,15 @@ var game = function(){
 		var brick = options.brick;
 		var score = options.score;
 	  	var size = 0.3;
-        var height = 0.05;
-        var curveSegments =4
-        var font = "helvetiker";
-        var weight = "bold";
-        var style = "normal";
+  		var height = 0.05;
+	        var curveSegments =4
+        	var font = "helvetiker";
+	        var weight = "bold";
+	        var style = "normal";
         
-        var d = 30; //duration
+        	var d = 30; //duration
         
-        var textGeo = new THREE.TextGeometry( score, {
+	        var textGeo = new THREE.TextGeometry( score, {
         	size: size,
 			height: height,
 			curveSegments: curveSegments,
@@ -941,7 +941,7 @@ var game = function(){
 
 			material: 0,
 			extrudeMaterial: 1});
-        textGeo.computeBoundingBox();
+        	textGeo.computeBoundingBox();
 		textGeo.computeVertexNormals();
 	
 		var textMaterial = new THREE.MeshFaceMaterial( [ 
@@ -955,7 +955,6 @@ var game = function(){
 		textMesh1.position.y = brick.GetPosition().y;
 		textMesh1.position.z = 0.5;
 		textMesh1.rotation.x = 1.7;
-        
         
 		parent = new THREE.Object3D();
 		parent.castShadow = true;
@@ -976,9 +975,13 @@ var game = function(){
 			});
 		}
 		else{
-			//TODO this is not the right place to change brick type
-			brick.userData.type = levels.getLevel(level).types[brick.userData.type.onHitTransformTo];
-			brick.userData.guiref.material.color.set(brick.userData.type.color);
+			//weird hack. dont know why this is happening. very sometimes the brick object is gone.
+			if (brick && brick.userData && brick.userData.guiref && brick.userData.guiref.material && brick.userData.type)
+			{
+				//TODO this is not the right place to change brick type
+				brick.userData.type = levels.getLevel(level).types[brick.userData.type.onHitTransformTo];
+				brick.userData.guiref.material.color.set(brick.userData.type.color);
+			}
 		}
 		
 		(function(mesh,parent,brick){
@@ -1004,19 +1007,16 @@ var game = function(){
 						brick.userData.guiref.material.opacity = opacity;
 					}
 					
-					game.addPostRenderCb(function(){
 					
-						if (tick == d){
-							game.getScene().remove(parent);
-							cb(brick);
-						}
-						else{
-							animate();
-						}
+					if (tick == d){
+						game.getScene().remove(parent);
+						cb(brick);
+					}
+					else{
+						animate();
+					}
 												
-					tick++
-						
-					});
+					tick++	
 				})
 			}
 			
