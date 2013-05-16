@@ -945,7 +945,12 @@ function BrickGame() {
 	}
 	
 	var animating = false;
-	function animate() {
+	var fps;
+	var oldtime = new Date();
+	function animate(time) {
+
+		fps = 1000/(time-oldtime) || 60;
+		oldtime = time;
 
 		animating = true;
 		executePrerenderCb();
@@ -966,7 +971,7 @@ function BrickGame() {
 					
 			//step physics
 			t = new Date();
-			scene.box2dworld.Step(1 / 60, 10, 10);
+			scene.box2dworld.Step(1 / fps, 10, 10);
 			scene.box2dworld.ClearForces();
 			t2 = new Date()-t;
 		}
